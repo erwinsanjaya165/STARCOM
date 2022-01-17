@@ -3,7 +3,7 @@ import Login from './login';
 import Register from './register';
 import Home from './homescreen';
 import Cart from './keranjang';
-import Akun from './myProfile';
+import MyProfile from './myProfile';
 import DetailProduct from './detailProduct';
 import Checkout from './checkout';
 import EditProfile from './editProfile';
@@ -15,7 +15,7 @@ export {
   Register,
   Home,
   Cart,
-  Akun,
+  MyProfile,
   DetailProduct,
   Checkout,
   EditProfile,
