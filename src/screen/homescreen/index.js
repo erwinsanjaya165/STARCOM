@@ -83,9 +83,7 @@ export default class Home extends Component {
           <View style={styles.boxSearch}>
             <TextInput placeholder="search" style={styles.textInput} />
           </View>
-          <TouchableOpacity
-            style={styles.boxIconSearch}
-            onPress={() => this.props.navigation.navigate('AppInfo')}>
+          <TouchableOpacity style={styles.boxIconSearch}>
             <IconSearch />
           </TouchableOpacity>
         </View>

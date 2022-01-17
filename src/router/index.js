@@ -7,6 +7,7 @@ import {
   AppInfo,
   Checkout,
   DetailProduct,
+  EditProfile,
   Login,
   Register,
   Splash,
@@ -22,6 +23,11 @@ export default class Router extends Component {
     return (
       <NavigationContainer>
         <Stack.Navigator>
+          <Stack.Screen
+            name="Splash"
+            component={Splash}
+            options={{headerShown: false}}
+          />
           <Stack.Screen
             name="Login"
             component={Login}
@@ -50,6 +56,11 @@ export default class Router extends Component {
           <Stack.Screen
             name="AppInfo"
             component={AppInfo}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="EditProfile"
+            component={EditProfile}
             options={{headerShown: false}}
           />
         </Stack.Navigator>
