@@ -8,6 +8,7 @@ import {
   Checkout,
   DetailProduct,
   Login,
+  order,
   Register,
   Splash,
 } from '../../src/screen';
@@ -40,6 +41,11 @@ export default class Router extends Component {
           <Stack.Screen
             name="DetailProduct"
             component={DetailProduct}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Order"
+            component={order}
             options={{headerShown: false}}
           />
           <Stack.Screen

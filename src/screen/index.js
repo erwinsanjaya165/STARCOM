@@ -8,6 +8,7 @@ import DetailProduct from './detailProduct';
 import Checkout from './checkout';
 import EditProfile from './editProfile';
 import AppInfo from './appInfo';
+import order from './order';
 
 export {
   Splash,
@@ -20,4 +21,5 @@ export {
   Checkout,
   EditProfile,
   AppInfo,
+  order,
 };

@@ -27,6 +27,13 @@ export const DataFinis = () =>
     },
   ]);
 
+export const DtaFnisLgin = () =>
+  Alert.alert('Welcome to Starcom!', 'Selamat datang di star computer', [
+    {
+      text: 'Ok',
+    },
+  ]);
+
 export const PasswordLogin = () =>
   Alert.alert('Password & email !', 'data yang anda masukkan salah', [
     {

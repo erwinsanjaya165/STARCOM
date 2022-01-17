@@ -8,7 +8,11 @@ import {
 } from 'react-native';
 import {styles} from '../../styles/Login';
 import {IconEmail, IconPassword1, IconPassword2, IconUser} from '../../assets';
-import {DataFinis, PasswordLogin} from '../../components/notifikasiData/index';
+import {
+  DataFinis,
+  DtaFnisLgin,
+  PasswordLogin,
+} from '../../components/notifikasiData/index';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default class Login extends Component {
@@ -51,7 +55,7 @@ export default class Login extends Component {
           PasswordLogin();
         } else {
           AsyncStorage.setItem('token', result.access_token);
-          DataFinis();
+          DtaFnisLgin();
           this.props.navigation.replace('Homescreen');
         }
       })

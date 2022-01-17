@@ -1,22 +1,9 @@
 import React, {Component} from 'react';
-import {
-  Text,
-  StyleSheet,
-  View,
-  TouchableOpacity,
-  Image,
-  ScrollView,
-  ActivityIndicator,
-} from 'react-native';
+import {Text, View, TouchableOpacity, Image, ScrollView} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {Warna_Background, Warna_Utama} from '../../utils';
 import LottieView from 'lottie-react-native';
-import {IconBack} from '../../assets';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
+import {styles} from '../../styles/DetailProduct';
 
 export default class DetailProduct extends Component {
   constructor() {
@@ -94,30 +81,6 @@ export default class DetailProduct extends Component {
       .catch(error => console.log('error', error));
   }
 
-  postOrder() {
-    var formdata = new FormData();
-    formdata.append('jumlah', '1');
-
-    var requestOptions = {
-      method: 'POST',
-      redirect: 'follow',
-      body: formdata,
-      headers: {
-        Authorization: `Bearer ${this.state.token}`,
-      },
-    };
-
-    fetch(
-      `https://star-comp.herokuapp.com/api/order/${this.state.id}`,
-      requestOptions,
-    )
-      .then(response => response.json())
-      .then(result => {
-        console.log(result);
-      })
-      .catch(error => console.log('error', error));
-  }
-
   render() {
     return (
       <View style={styles.page}>
@@ -174,115 +137,8 @@ export default class DetailProduct extends Component {
             onPress={() => this.postKranjang()}>
             <Text style={styles.textAdd}>Add To Cart</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.bottomCheck}
-            onPress={() => this.postOrder()}>
-            <Text style={styles.textCheck}>Checkout</Text>
-          </TouchableOpacity>
         </View>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  page: {
-    flex: 1,
-    backgroundColor: Warna_Background,
-  },
-  boxBack: {
-    paddingTop: 17,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'white',
-  },
-  back: {
-    position: 'absolute',
-    left: 20,
-  },
-  textJdul: {
-    fontSize: hp('2.5%'),
-    fontFamily: 'Poppins-SemiBold',
-    color: 'black',
-  },
-  containerGambar: {
-    height: hp('60%'),
-    alignItems: 'center',
-    backgroundColor: 'white',
-  },
-  gambar: {
-    marginTop: '5%',
-    width: wp('90%'),
-    height: hp('45%'),
-  },
-  boxTextNma: {
-    position: 'absolute',
-    bottom: 5,
-    left: 20,
-  },
-  textNma: {
-    fontSize: hp('2%'),
-    fontFamily: 'Poppins-SemiBold',
-    color: 'black',
-  },
-  textHrga: {
-    fontSize: hp('2.7%'),
-    fontFamily: 'Poppins-Bold',
-    color: Warna_Utama,
-  },
-  boxText: {
-    padding: 20,
-    backgroundColor: 'white',
-    marginTop: '2%',
-  },
-  textDes: {
-    fontSize: hp('2.3%'),
-    fontFamily: 'Poppins-Medium',
-    color: 'black',
-  },
-  textDesbrang: {
-    fontSize: hp('2%'),
-    fontFamily: 'Poppins-Light',
-    color: 'black',
-  },
-  containerBottom: {
-    paddingVertical: 7,
-    height: hp('9%'),
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    backgroundColor: 'white',
-  },
-  bottomCheck: {
-    width: wp('40%'),
-    height: hp('6'),
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 7,
-    backgroundColor: Warna_Utama,
-  },
-  bottomAdd: {
-    width: wp('40%'),
-    height: hp('6'),
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 7,
-    borderColor: Warna_Utama,
-    borderWidth: 2,
-  },
-  textAdd: {
-    fontSize: hp('2.3%'),
-    fontFamily: 'Poppins-SemiBold',
-    color: Warna_Utama,
-  },
-  textCheck: {
-    fontSize: hp('2.3%'),
-    fontFamily: 'Poppins-SemiBold',
-    color: 'white',
-  },
-  loading: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
