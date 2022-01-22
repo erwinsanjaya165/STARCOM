@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {Akun, Cart, Home} from '../../screen';
+import {MyProfile, Cart, Home} from '../../screen';
 import {Warna_Disable, Warna_Sekunder, Warna_Utama} from '../../utils';
 
 const Tab = createMaterialBottomTabNavigator();
@@ -37,8 +37,8 @@ export default class BottomTabs extends Component {
           }}
         />
         <Tab.Screen
-          name="Profile"
-          component={Akun}
+          name="MyProfile"
+          component={MyProfile}
           options={{
             tabBarLabel: 'Profile',
             tabBarColor: 'white',

@@ -7,6 +7,10 @@ import {
 } from 'react-native-responsive-screen';
 
 export default class order extends Component {
+  componentDidMount() {
+    console.log(this.props.route.params);
+  }
+
   render() {
     return (
       <View style={styles.page}>

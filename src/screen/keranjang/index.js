@@ -174,7 +174,12 @@ export default class Cart extends Component {
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={styles.boxImgText}
-                    onPress={() => this.props.navigation.navigate('Order')}>
+                    onPress={() => {
+                      this.props.navigation.navigate('Order', {
+                        data: value.barang_id,
+                        harga: value.harga,
+                      });
+                    }}>
                     {this.imgProduct(value.barang_id)}
                     <View style={styles.boxText}>
                       {this.namaProduct(value.barang_id)}

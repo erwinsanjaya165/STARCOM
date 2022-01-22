@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   TextInput,
   ActivityIndicator,
+  Alert,
 } from 'react-native';
 import {styles} from '../../styles/Login';
 import {IconEmail, IconPassword1, IconPassword2, IconUser} from '../../assets';
@@ -48,17 +49,35 @@ export default class Login extends Component {
         'Content-Tipe': 'multipart/form-data',
       },
     })
-      .then(response => response.json())
-      .then(result => {
-        console.log(result.access_token);
-        if (email === '') {
-          PasswordLogin();
-        } else {
-          AsyncStorage.setItem('token', result.access_token);
-          DtaFnisLgin();
+      .then(async response => {
+        const res = await response.json();
+        if (response.status == 401) {
+          Alert.alert('Peringatan', 'Pasitkan email dan password anda benar!', [
+            {
+              text: 'Siap',
+            },
+          ]);
+        } else if (response.status == 200) {
+          Alert.alert('Peringatan', 'Login Berhasil!', [
+            {
+              text: 'Siap',
+            },
+          ]);
           this.props.navigation.replace('Homescreen');
         }
       })
+      // .then(result => {
+      //   console.log(result.access_token);
+      //   const {role_data} = result;
+      //   if (role_data) {
+      //     AsyncStorage.setItem('token', result.access_token).then(() => {
+      //       PasswordLogin();
+      //     });
+      //   } else {
+      //     DataFinis();
+      //     this.props.navigation.replace('Homescreen');
+      //   }
+      // })
       .catch(err => {
         console.log(err);
       })
